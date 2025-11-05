@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RESUME ARCHITECT</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.18/mammoth.browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- Theme stylesheet (keeps functionality unchanged, only visual overrides) -->
+    <link href="assets/theme.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#" onclick="showSection('home')"><i
+                    class="bi bi-file-earmark-person me-2"></i>RESUME ARCHITECT</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span
+                    class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item me-2"><a class="nav-link active" href="#" onclick="showSection('home')"><i
+                                class="bi bi-house me-2"></i>Home</a></li>
+                    <li class="nav-item me-2"><a class="nav-link" href="#about-us" id="about-us-link"><i
+                                class="bi bi-info-circle me-2"></i>About Us</a></li>
+            <li class="nav-item logged-in-nav" style="display: none;"><a class="nav-link" href="#"
+                onclick="showSection('upload-resume')"><i class="bi bi-cloud-upload me-2"></i>New
+                Analysis</a></li>
+            <li class="nav-item logged-in-nav" style="display: none;"><a class="nav-link" href="#"
+                onclick="showSection('history')"><i class="bi bi-clock-history me-2"></i>History</a></li>
+            <li class="nav-item logged-in-nav ms-auto" style="display: none;"><a class="nav-link" href="#"
+                onclick="logout()"><i class="bi bi-box-arrow-right me-2"></i>Logout</a></li>
+                    <li class="nav-item">
+                        <div class="nav-actions">
+                            <a class="nav-link" href="#" onclick="showAuthForm('login')">Login</a>
+                            <a class="btn btn-signup" href="#" onclick="showAuthForm('register')">Sign Up</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section id="home">
+            <div class="container text-center" style="text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.07); padding: 3.5rem 0;">
+                <div class="mb-5">
+                    <h1 class="display-3" id="AR">RESUME ARCHITECT</h1>
+                    <p class="fs-5" style="max-width: 600px; margin-inline: auto;">Build a standout resume that gets you hired. Analyze, optimize, and impress.</p>
+                </div>
+                <div class="row g-4 mb-5 feature-grid">
+                    <div class="col-md-4">
+                        <div class="feature-card text-center">
+                            <div class="feature-icon">
+                                <!-- Assistant-chosen ATS target symbol: concentric rings -->
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                                    <circle cx="12" cy="12" r="6.6" stroke="#fff" stroke-width="1.6" fill="none" />
+                                    <circle cx="12" cy="12" r="3.4" stroke="#fff" stroke-width="1.6" fill="none" />
+                                    <circle cx="12" cy="12" r="1.2" fill="#fff" />
+                                </svg>
+                            </div>
+                            <h5>ATS Score</h5>
+                            <p>Get a detailed compatibility score and see how well your resume passes ATS systems</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-card text-center">
+                            <div class="feature-icon">
+                                <!-- Assistant-chosen AI Insights symbol: simplified sparkle/star -->
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                                    <path d="M12 5.5 L13 8 L15.5 8.6 L13.4 10 L13.9 12.6 L12 11.4 L10.1 12.6 L10.6 10 L8.5 8.6 L11 8 L12 5.5 Z" fill="#fff" />
+                                    <circle cx="17.2" cy="7.2" r="0.7" fill="#fff" />
+                                </svg>
+                            </div>
+                            <h5>AI Insights</h5>
+                            <p>Receive personalized recommendations on strengths, weaknesses, and improvements</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-card text-center">
+                            <div class="feature-icon">
+                                <!-- Assistant-chosen Job Matching symbol: upward trend with arrow -->
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                                    <polyline points="5 15 9 11 13 15 18 10" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                                    <!-- tiny arrowhead at the end -->
+                                    <path d="M17.3 9.1 L18.9 9.7 L17.9 10.9" fill="#fff" stroke="#fff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <h5>Job Matching</h5>
+                            <p>Compare against job descriptions to optimize your resume for specific positions</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-5"><button class="btn btn-primary btn-lg" onclick="showSection('login')">Get
+                        Started</button></div>
+                <div id="about-us">
+                    <h2 class="mb-4">About RESUME ARCHITECT</h2>
+                    <p class="lead" style="max-width: 800px; margin-inline: auto;">RESUME ARCHITECT is a cutting-edge
+                        platform designed to empower job seekers in a competitive market. We leverage AI to provide
+                        instant, actionable feedback on your resume, ensuring it's perfectly optimized to pass through
+                        automated screening systems (ATS) and catch the eye of recruiters. Our mission is to bridge the
+                        gap between talented individuals and their dream careers by building the perfect resume, every
+                        time.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="login" class="container mt-5">
+            <div id="auth-container" class="mx-auto" style="max-width: 500px;">
+                <div class="d-flex justify-content-center">
+                    <div class="card p-4" style="max-width:420px; width:100%">
+                        <div class="card-body">
+                            <p class="text-muted small mb-1">Please enter your details</p>
+                            <h3 class="mb-3">Welcome back</h3>
+
+                            <div id="login-card">
+                                <form id="login-form">
+                                    <div class="mb-3"><input type="email" class="form-control" id="login-email" placeholder="Email address" required></div>
+                                    <div class="mb-3">
+                                        <div class="input-group">
+                                            <input type="password" class="form-control" id="login-password" placeholder="Password" required>
+                                            <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('login-password', this)">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="checkbox" value="" id="remember-me">
+                                                                    <label class="form-check-label small" for="remember-me">Remember for 30 days</label>
+                                                                </div>
+                                                                <div><a href="#" data-bs-toggle="modal" data-bs-target="#forgot-password-modal" class="small text-primary">Forgot password?</a></div>
+                                                            </div>
+                                    <button type="submit" class="btn btn-primary w-100 mb-3">Sign in</button>
+                                </form>
+
+                                <div class="text-center mb-3">or</div>
+                                <button class="btn btn-outline-secondary w-100 d-flex align-items-center justify-content-center mb-2" id="google-signin" onclick="startGoogleAuth()">
+                                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 48 48'><path fill='%23EA4335' d='M24 9.5c3.9 0 7 1.3 9.6 3.4l7.1-7.1C36.6 2.4 30.6 0 24 0 14 0 5.8 5.9 2.3 14.3l8.3 6.4C12.6 15.1 17.7 9.5 24 9.5z'/><path fill='%234285F4' d='M46.5 24.5c0-1.6-.1-2.8-.3-4.1H24v8.1h12.7c-.5 2.6-2.1 5-4.5 6.6l7 5.4C43.8 36.6 46.5 30.9 46.5 24.5z'/><path fill='%23FBBC05' d='M10.5 28.7c-.6-1.8-.9-3.7-.9-5.7s.3-3.9.9-5.7L2.2 11.6C.8 14.8 0 18.3 0 22s.8 7.2 2.2 10.4l8.3-4.7z'/><path fill='%23034A38' d='M24 48c6.6 0 12.6-2.4 17.1-6.5l-7.1-5.4c-2.2 1.5-5 2.4-9.9 2.4-6.3 0-11.4-5.6-11.4-11.8 0-1.9.5-3.7 1.4-5.3L2.3 14.3C.8 17.5 0 21 0 24.5 0 36 10.7 48 24 48z'/></svg>" alt="G" style="height:18px; margin-right:8px;"> Sign in with Google
+                                </button>
+
+                                <p class="text-center small mt-3">Don't have an account? <a href="#" onclick="toggleAuthForms()">Sign up</a></p>
+                            </div>
+
+                            <div id="register-card" style="display:none;">
+                                <p class="text-muted small mb-1">Create a new account</p>
+                                <h4 class="mb-3">Sign up</h4>
+                                <form id="register-form">
+                                    <div class="mb-3"><input type="email" class="form-control" id="register-email" placeholder="Email address" required></div>
+                                    <div class="mb-3">
+                                        <div class="input-group">
+                                            <input type="password" class="form-control" id="register-password" placeholder="Password" required>
+                                            <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('register-password', this)">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 form-check">
+                                        <input class="form-check-input" type="checkbox" id="agree-terms">
+                                        <label class="form-check-label small" for="agree-terms">I agree to the Terms</label>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary w-100">Sign up</button>
+                                </form>
+                                <p class="text-center small mt-3">Already have an account? <a href="#" onclick="toggleAuthForms()">Sign in</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="upload-resume" class="container mt-5">
+            <div class="card p-5 mx-auto" style="max-width: 700px;">
+                <h2 class="text-center mb-4">Start New Analysis</h2>
+                <div id="upload-form">
+                    <div class="mb-4">
+                        <label class="form-label">1. Upload Your Resume File</label>
+                        <div class="upload-dropzone" id="dropzone" onclick="document.getElementById('resume-file').click();">
+                            <div class="dropzone-content">
+                                <div class="icon"><i class="bi bi-cloud-upload"></i></div>
+                                <p><strong>Drag and drop your resume here, or <span class="text-primary" style="text-decoration:underline;">browse</span></strong></p>
+                                <small class="text-muted">Supports PDF, DOCX, and TXT (max 10MB)</small>
+                            </div>
+                            <input style="display:none;" class="form-control" type="file" id="resume-file" accept=".pdf,.docx,.txt" required>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label for="job-select" class="form-label">2. Select a Job Description</label>
+                        <select id="job-select" class="form-select" required>
+                            <option value="">Loading jobs...</option>
+                        </select>
+                        <div class="mt-2 small text-muted">Can't find your job? <a href="#" id="toggle-job-desc">Paste a job description</a></div>
+                        <div id="job-desc-container" style="display:none; margin-top:8px;">
+                            <textarea id="job-desc-textarea" class="form-control" rows="6" placeholder="Paste the full job description here"></textarea>
+                        </div>
+                    </div>
+                    <button id="start-analyze-btn" type="button" class="btn btn-primary w-100" onclick="analyzeResume()">Analyze My
+                        Resume</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="history" class="container mt-5" style="display:none;">
+            <div class="card p-5 mx-auto" style="max-width: 700px;">
+                <h2 class="text-center mb-4">Your Analysis History</h2>
+                <div id="history-list" class="list-group mb-3"><p class="text-muted">No history loaded. Click refresh to load your analysis history.</p></div>
+                <div class="text-center">
+                    <button class="btn btn-outline-secondary" onclick="fetchHistory()">Refresh</button>
+                    <button class="btn btn-outline-secondary ms-2" onclick="showSection('analysis')">Back to Analysis</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="analysis" class="container mt-5">
+            <div class="card p-5" style="position:relative; overflow:visible">
+                <!-- Overlay shown during analysis to provide a centered, professional loading state -->
+                <div id="analysis-overlay" style="display:none;">
+                    <div class="analysis-overlay-backdrop"></div>
+                    <div class="analysis-overlay-card">
+                        <div class="spinner-border text-primary" role="status" aria-hidden="true"></div>
+                        <div style="margin-left:14px;">
+                            <div style="font-weight:600; font-size:1.05rem;">Analyzing your resume</div>
+                            <div style="color:#6b7280; margin-top:4px; font-size:0.95rem;">This may take a few seconds — we appreciate your patience.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center mb-5">
+                    <h2 id="analysis-title" class="mb-0">Your Resume Analysis</h2>
+                    <div id="analysis-spinner" class="spinner-border text-primary" role="status" style="display: none;">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+                <div class="text-center mb-5">
+                    <h3>Your Final ATS Score</h3>
+                    <div id="ats-score" class="display-1 fw-bold text-primary">0%</div>
+                    <p id="ats-message" class="lead">Analyzing...</p>
+                </div>
+
+                <div class="row mb-5">
+                    <div class="col-md-6">
+                        <div class="analysis-card p-4 rounded-3 bg-white shadow-sm mb-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="analysis-icon bg-success-subtle rounded-circle p-2 me-2">
+                                    <i class="bi bi-check-lg text-success"></i>
+                                </div>
+                                <h4 class="mb-0">Strengths</h4>
+                            </div>
+                            <div id="strengths-list" class="analysis-content">
+                                <!-- Strengths will be populated here -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="analysis-card p-4 rounded-3 bg-white shadow-sm mb-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="analysis-icon bg-danger-subtle rounded-circle p-2 me-2">
+                                    <i class="bi bi-arrow-up-circle text-danger"></i>
+                                </div>
+                                <h4 class="mb-0">Areas for Improvement</h4>
+                            </div>
+                            <div id="weaknesses-list" class="analysis-content">
+                                <!-- Weaknesses will be populated here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <style>
+                    .analysis-card {
+                        border: 1px solid rgba(0,0,0,0.1);
+                        transition: transform 0.2s ease;
+                    }
+                    .analysis-card:hover {
+                        transform: translateY(-2px);
+                    }
+                    .analysis-icon {
+                        width: 40px;
+                        height: 40px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                    .analysis-icon i {
+                        font-size: 1.25rem;
+                    }
+                    .analysis-content .badge {
+                        font-size: 0.9rem;
+                        padding: 0.5rem 1rem;
+                        margin: 0.25rem;
+                        background-color: #f8f9fa;
+                        border: 1px solid rgba(0,0,0,0.05);
+                        color: #212529;
+                    }
+                    .skills-container { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+                    .skills-container .badge { background:#e9f2ff; color:#0b61ff; border-radius:999px; padding:6px 12px; font-weight:600; }
+                    .analysis-content p { margin:0 0 10px 0; padding:12px 14px; border-radius:8px; background:#fff9f9; border-left:4px solid #f5c2c2; }
+                    /* Analysis overlay styles */
+                    #analysis-overlay { position:absolute; left:0; top:0; right:0; bottom:0; display:flex; align-items:center; justify-content:center; pointer-events:none; }
+                    .analysis-overlay-backdrop { position:absolute; left:0; top:0; right:0; bottom:0; background:rgba(255,255,255,0.85); backdrop-filter: blur(2px); }
+                    .analysis-overlay-card { position:relative; z-index:20; pointer-events:auto; display:flex; align-items:center; gap:12px; background:white; padding:18px 22px; border-radius:12px; box-shadow:0 10px 30px rgba(16,24,40,0.08); border:1px solid rgba(16,24,40,0.04); }
+                    .analysis-overlay-card .spinner-border { width:2.2rem; height:2.2rem; }
+                    /* Suggestion modal loader styles */
+                    .suggestion-modal .modal-body { min-height: 160px; }
+                    .modal-loader { width:100%; }
+                    .loader-card { max-width:520px; border-radius:10px; background:transparent; }
+                    .loader-visual { width:3.2rem; height:3.2rem; border-width:0.28rem; }
+                    .loader-title { font-size:1rem; }
+                    .loader-subtext { font-size:0.92rem; }
+                    .loader-dots { display:inline-block; width:1.2em; }
+                    @keyframes dots { 0% { content: ''; } 33% { transform: translateY(0); } 66% { transform: translateY(0); } 100% { transform: translateY(0); } }
+                    .loader-dots::after { display:inline-block; animation: ellipsis 1.4s infinite; content: ''; }
+                    @keyframes ellipsis {
+                        0% { content: ''; }
+                        33% { content: '.'; }
+                        66% { content: '..'; }
+                        100% { content: '...'; }
+                    }
+                    .improvement-item {
+                        padding: 0.75rem 1rem;
+                        margin-bottom: 0.5rem;
+                        background-color: #fff;
+                        border-radius: 0.5rem;
+                        border-left: 3px solid #dc3545;
+                    }
+                    #weaknesses-list p {
+                        background: #fff5f5;
+                        padding: 12px 16px;
+                        border-radius: 8px;
+                        margin-bottom: 10px;
+                        border-left: 4px solid #dc3545;
+                    }
+                    #strengths-list .badge {
+                        background: #f0f9ff;
+                        color: #0a58ca;
+                        border: none;
+                        padding: 8px 16px;
+                        font-weight: 500;
+                        margin: 4px;
+                    }
+                </style>
+               
+                <div class="text-center mt-5">
+                    <p class="lead">Take the next step to optimize your resume and prepare for your interview.</p>
+                    <button id="generate-suggestions-btn" class="btn btn-primary btn-lg d-inline-flex align-items-center">
+                        <span class="btn-text">Generate AI Rewrite Suggestions</span>
+                        <span class="btn-spinner spinner-border spinner-border-sm" role="status" aria-hidden="true" style="display:none; margin-left:10px;"></span>
+                    </button>
+                    <button class="btn btn-secondary btn-lg ms-3" onclick="showSection('interview-questions')">View AI
+                        Interview Questions</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="interview-questions" class="container mt-5">
+            <div class="card p-5">
+                <h2 class="text-center mb-4">AI-Generated Interview Questions</h2>
+                <div class="accordion mt-4" id="interviewAccordion">
+                    <p class="text-center text-muted">Your tailored interview questions will appear here.</p>
+                </div>
+                <div class="text-center mt-4"><button class="btn btn-outline-secondary"
+                        onclick="showSection('analysis')"><i class="bi bi-arrow-left me-2"></i>Back to Analysis</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Reset Password Modal -->
+    <div class="modal fade" id="forgot-password-modal" tabindex="-1" aria-labelledby="forgotPasswordModalLabel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="forgotPasswordModalLabel">Reset Password</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="reset-password-form">
+                        <div class="mb-3">
+                            <label for="reset-email" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="reset-email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="new-password" class="form-label">New Password</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="new-password" required>
+                                <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('new-password', this)">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirm-password" class="form-label">Confirm New Password</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="confirm-password" required>
+                                <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('confirm-password', this)">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div id="forgot-password-message" class="alert d-none mb-3" role="alert"></div>
+                        <button type="submit" class="btn btn-primary w-100">Reset Password</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Suggestion Modal -->
+    <div class="modal fade suggestion-modal" id="suggestion-modal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content bg-light text-dark">
+                <div class="modal-header">
+                    <h5 class="modal-title">AI Resume Suggestions</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="suggestion-modal-body">
+                                <div class="modal-loader d-flex align-items-center justify-content-center">
+                                    <div class="loader-card text-center p-4 w-100">
+                                        <div class="spinner-border text-primary loader-visual" role="status" aria-hidden="true"></div>
+                                        <div class="loader-title mt-3 fw-semibold">Generating personalized suggestions</div>
+                                        <div class="loader-subtext text-muted mt-1">We are optimizing bullets and tailoring language for ATS — this usually takes a few seconds<span class="loader-dots">...</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="download-pdf-btn" disabled>Download as
+                        PDF</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // --- CONFIGURATION ---
+        const API_BASE_URL = "http://localhost:3000/api";
+
+        // --- GLOBAL STATE ---
+        let currentUser = null;
+        let extractedResumeText = '';
+        let jobPostings = [];
+
+        // --- UI & NAVIGATION ---
+        function showSection(sectionId) {
+            document.querySelectorAll('main > section').forEach(sec => sec.style.display = 'none');
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.style.display = sectionId === 'home' ? 'flex' : 'block';
+                document.body.style.backgroundImage = sectionId === 'home' ? 'none' : "url('background.jpg')";
+                // if user navigates to history, lazy-load it
+                if (sectionId === 'history') fetchHistory();
+            }
+        }
+
+        
+
+        function toggleAuthForms() {
+            const loginCard = document.getElementById('login-card');
+            const registerCard = document.getElementById('register-card');
+            loginCard.style.display = loginCard.style.display === 'none' ? 'block' : 'none';
+            registerCard.style.display = registerCard.style.display === 'none' ? 'block' : 'none';
+        }
+
+        // Centralized nav update to show/hide login/signup vs logged-in items
+        function updateNavForAuth() {
+            const isLoggedIn = !!currentUser;
+            // show/hide the logged-in nav links
+            document.querySelectorAll('.logged-in-nav').forEach(item => item.style.display = isLoggedIn ? 'list-item' : 'none');
+            // show/hide the login/signup action group
+            const navActions = document.querySelector('.nav-actions');
+            if (navActions) navActions.style.display = isLoggedIn ? 'none' : 'flex';
+        }
+
+        // Show the login section and open either the login or register form deterministically
+        function showAuthForm(mode) {
+            // mode: 'login' or 'register'
+            showSection('login');
+            const loginCard = document.getElementById('login-card');
+            const registerCard = document.getElementById('register-card');
+            if (!loginCard || !registerCard) return;
+            if (mode === 'register') {
+                loginCard.style.display = 'none';
+                registerCard.style.display = 'block';
+            } else {
+                loginCard.style.display = 'block';
+                registerCard.style.display = 'none';
+            }
+        }
+
+        // --- AUTHENTICATION & INITIALIZATION ---
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Prefer persistent auth in localStorage, fallback to sessionStorage
+            let user = null;
+            try {
+                user = JSON.parse(localStorage.getItem('auth')) || JSON.parse(sessionStorage.getItem('auth'));
+            } catch (e) {
+                // ignore parse errors
+            }
+
+            // Helper: verify token with server and store validated user
+            async function verifyAndStoreToken(token, remember = true) {
+                try {
+                    const res = await fetch(`${API_BASE_URL}/auth/me`, {
+                        headers: { 'Authorization': `Bearer ${token}` }
+                    });
+                    if (!res.ok) throw new Error('Token verification failed');
+                    const body = await res.json();
+                    const serverUser = body.user || body;
+                    const authObj = { id: serverUser.id, email: serverUser.email, name: serverUser.name || serverUser.displayName || '', token };
+                    if (remember) localStorage.setItem('auth', JSON.stringify(authObj)); else sessionStorage.setItem('auth', JSON.stringify(authObj));
+                    return authObj;
+                } catch (err) {
+                    console.warn('Token verify failed:', err.message);
+                    return null;
+                }
+            }
+
+            // If Google OAuth redirected back with a token, verify it with server and persist user
+            try {
+                const params = new URLSearchParams(window.location.search);
+                const googleToken = params.get('google_token');
+                if (googleToken) {
+                    const auth = await verifyAndStoreToken(googleToken, true);
+                    if (auth) user = auth;
+                    else showTopAlert('Google sign-in failed to verify. Please try again.', 'warning');
+
+                    // remove token from URL
+                    params.delete('google_token');
+                    const newUrl = window.location.pathname + (params.toString() ? '?' + params.toString() : '') + window.location.hash;
+                    window.history.replaceState({}, document.title, newUrl);
+                }
+            } catch (e) {
+                console.warn('Failed to handle google token:', e.message);
+            }
+
+            // If redirected back with an error (e.g. oauth_not_configured), show a friendly alert
+            try {
+                const params2 = new URLSearchParams(window.location.search);
+                const err = params2.get('error');
+                if (err) {
+                    // Map known error codes to user-friendly messages
+                    const messages = {
+                        'oauth_not_configured': 'Google OAuth is not configured on the server. Ask the administrator to set GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET.',
+                        'google': 'Google sign-in failed. Please try again or use email/password login.'
+                    };
+                    const msg = messages[err] || `Authentication error: ${err}`;
+                    showTopAlert(msg, 'warning');
+                    // remove error from URL
+                    params2.delete('error');
+                    const newUrl2 = window.location.pathname + (params2.toString() ? '?' + params2.toString() : '') + window.location.hash;
+                    window.history.replaceState({}, document.title, newUrl2);
+                }
+            } catch (e) {
+                console.warn('Error parsing error param:', e.message);
+            }
+
+            if (user) {
+                currentUser = user;
+                // populate UI for authenticated users
+                updateNavForAuth();
+                showSection('upload-resume');
+                fetchJobs();
+            } else {
+                updateNavForAuth();
+                showSection('home');
+            }
+
+            // Check server debug status to decide whether to show OAuth button
+            try {
+                const stat = await fetch(`${API_BASE_URL}/debug/status`).then(r => r.json()).catch(() => null);
+                if (stat && !stat.googleConfigured) {
+                    // remove the Google sign-in button and the 'or' divider if present
+                    const gbtn = document.getElementById('google-signin');
+                    if (gbtn) {
+                        // remove preceding 'or' text node if it exists
+                        const prev = gbtn.previousElementSibling;
+                        if (prev && prev.textContent.trim().toLowerCase() === 'or') prev.remove();
+                        gbtn.remove();
+                    }
+                    // Optionally, hide the forgot-password link only if server does not support it
+                    // (we support forgot-password via /api/forgot-password endpoint)
+                }
+            } catch (e) { console.warn('Could not fetch debug status', e); }
+
+            // attach forgot-password handler (may be replaced by modal later)
+            const fLink = document.getElementById('forgot-password-link');
+            if (fLink) fLink.addEventListener('click', handleForgotPassword);
+
+            // Paste job description toggle (shows the textarea and selects the 'custom' option)
+            const toggleJobDesc = document.getElementById('toggle-job-desc');
+            if (toggleJobDesc) {
+                toggleJobDesc.addEventListener('click', (ev) => {
+                    ev.preventDefault();
+                    const jc = document.getElementById('job-desc-container');
+                    const jobSelect = document.getElementById('job-select');
+                    if (jc) jc.style.display = (jc.style.display === 'block') ? 'none' : 'block';
+                    if (jobSelect) jobSelect.value = 'custom';
+                });
+            }
+        });
+
+        // Simple top alert helper (injects a dismissible Bootstrap alert under the navbar)
+        function showTopAlert(message, type = 'info', timeoutMs = 10000) {
+            const existing = document.getElementById('top-alert');
+            if (existing) existing.remove();
+            const wrapper = document.createElement('div');
+            wrapper.id = 'top-alert';
+            wrapper.className = 'container mt-3';
+            wrapper.innerHTML = `
+                <div class="alert alert-${type} alert-dismissible fade show" role="alert">
+                    ${message}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>`;
+            const nav = document.querySelector('nav');
+            nav.parentNode.insertBefore(wrapper, nav.nextSibling);
+            if (timeoutMs > 0) setTimeout(() => {
+                try { const bsAlert = bootstrap.Alert.getOrCreateInstance(wrapper.querySelector('.alert')); bsAlert.close(); } catch (e) { wrapper.remove(); }
+            }, timeoutMs);
+        }
+
+        document.getElementById('register-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('register-email').value;
+            const password = document.getElementById('register-password').value;
+            try {
+                const response = await fetch(`${API_BASE_URL}/register`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
+                const data = await response.json();
+                if (!response.ok) throw new Error(data.message || 'Registration failed');
+                alert(data.message);
+                // After registering, show the login form so the user can sign in
+                toggleAuthForms();
+            } catch (error) {
+                alert(`Registration failed: ${error.message}`);
+            }
+        });
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            try {
+                const response = await fetch(`${API_BASE_URL}/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
+                const data = await response.json();
+                if (!response.ok) throw new Error(data.message);
+
+                currentUser = data.user;
+                const remember = !!document.getElementById('remember-me') && document.getElementById('remember-me').checked;
+                const authObj = { id: currentUser.id, email: currentUser.email, name: currentUser.name || '', token: null };
+                if (remember) localStorage.setItem('auth', JSON.stringify(authObj));
+                else sessionStorage.setItem('auth', JSON.stringify(authObj));
+                // update nav and show authenticated UI
+                updateNavForAuth();
+                showSection('upload-resume');
+                fetchJobs();
+            } catch (error) {
+                alert(`Login failed: ${error.message}`);
+            }
+        });
+
+        function logout() {
+            currentUser = null;
+            // remove from both storages
+            try { localStorage.removeItem('auth'); } catch (e) { }
+            try { sessionStorage.removeItem('auth'); } catch (e) { }
+            // update nav to logged-out state
+            updateNavForAuth();
+            showSection('home');
+        }
+
+        document.getElementById('about-us-link').addEventListener('click', (e) => {
+            e.preventDefault();
+            showSection('home');
+            setTimeout(() => document.getElementById('about-us').scrollIntoView({ behavior: 'smooth' }), 50);
+        });
+
+        // --- CORE LOGIC ---
+        async function fetchJobs() {
+            const jobSelect = document.getElementById('job-select');
+            try {
+                const response = await fetch(`${API_BASE_URL}/jobs`);
+                if (!response.ok) throw new Error("Could not fetch jobs from server.");
+                jobPostings = await response.json();
+                // If server returned no jobs, provide a sensible local sample so the UI remains usable
+                if (!Array.isArray(jobPostings) || jobPostings.length === 0) {
+                    jobPostings = [{ id: 'local-sample-1', job_title: 'Sample: React Developer', company: 'Sample Co', full_description: 'Looking for a React developer with Node.js and AWS experience.' }];
+                }
+                jobSelect.innerHTML = '<option value="">-- Select a Job --</option>';
+                jobPostings.forEach(job => {
+                    const option = document.createElement('option');
+                    option.value = job.id;
+                    option.textContent = `${job.job_title} at ${job.company}`;
+                    jobSelect.appendChild(option);
+                });
+                // also allow a custom pasted job description option
+                const customOpt = document.createElement('option');
+                customOpt.value = 'custom';
+                customOpt.textContent = 'Paste a job description...';
+                jobSelect.appendChild(customOpt);
+
+                // Toggle textarea visibility when user chooses 'custom'
+                jobSelect.addEventListener('change', (e) => {
+                    const jc = document.getElementById('job-desc-container');
+                    if (!jc) return;
+                    if (e.target.value === 'custom') jc.style.display = 'block'; else jc.style.display = 'none';
+                });
+            } catch (error) {
+                console.error("Error fetching jobs: ", error);
+                // Fallback: populate with a local sample job and offer the paste option so the user can continue
+                jobPostings = [{ id: 'local-sample-1', job_title: 'Sample: React Developer', company: 'Sample Co', full_description: 'Looking for a React developer with Node.js and AWS experience.' }];
+                jobSelect.innerHTML = '<option value="">-- Select a Job --</option>';
+                jobPostings.forEach(job => {
+                    const option = document.createElement('option');
+                    option.value = job.id;
+                    option.textContent = `${job.job_title} at ${job.company}`;
+                    jobSelect.appendChild(option);
+                });
+                const customOpt = document.createElement('option');
+                customOpt.value = 'custom';
+                customOpt.textContent = 'Paste a job description...';
+                jobSelect.appendChild(customOpt);
+                const jc = document.getElementById('job-desc-container');
+                if (jc) jc.style.display = 'none';
+            }
+        }
+
+        // --- USER HISTORY ---
+        async function fetchHistory() {
+            const historyList = document.getElementById('history-list');
+            if (!historyList) return;
+
+            // Show loader
+            historyList.innerHTML = '<div class="d-flex justify-content-center my-3"><div class="spinner-border" role="status"></div></div>';
+
+            // Local fallback history
+            const localHistory = JSON.parse(localStorage.getItem('analysisHistory') || '[]');
+
+            // If user is logged in, try server first and fall back to local
+            if (currentUser) {
+                try {
+                    const headers = { 'Content-Type': 'application/json' };
+                    if (currentUser.token) headers['Authorization'] = `Bearer ${currentUser.token}`;
+
+                    const res = await fetch(`${API_BASE_URL}/history`, { headers });
+                    if (!res.ok) throw new Error('Server history not available');
+                    const serverData = await res.json();
+                    const data = Array.isArray(serverData) && serverData.length ? serverData : localHistory;
+                    if (!data || data.length === 0) {
+                        historyList.innerHTML = '<p class="text-muted">No analysis history found yet.</p>';
+                        return;
+                    }
+                    historyList.innerHTML = data.map(item => {
+                        const title = item.jobTitle || item.title || 'Analysis';
+                        const date = item.date || item.createdAt || item.timestamp || '';
+                        const score = item.score != null ? `${item.score}%` : '';
+                        return `
+                            <div class="list-group-item">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <div class="fw-semibold">${title}</div>
+                                        <div class="text-muted small">${date}</div>
+                                    </div>
+                                    <div>
+                                        ${score ? `<span class="badge bg-primary">${score}</span>` : ''}
+                                    </div>
+                                </div>
+                            </div>`;
+                    }).join('');
+                    return;
+                } catch (err) {
+                    // fallback to local
+                    if (!localHistory || localHistory.length === 0) {
+                        historyList.innerHTML = `<p class="text-muted">No server history available. ${err.message}. No local history found.</p>`;
+                        return;
+                    }
+                    historyList.innerHTML = `<p class="text-muted">Could not fetch server history: ${err.message}. Showing local history.</p>` + localHistory.map(item => {
+                        const title = item.jobTitle || item.title || 'Analysis';
+                        const date = item.date || item.createdAt || item.timestamp || '';
+                        const score = item.score != null ? `${item.score}%` : '';
+                        return `
+                            <div class="list-group-item">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <div class="fw-semibold">${title}</div>
+                                        <div class="text-muted small">${date}</div>
+                                    </div>
+                                    <div>
+                                        ${score ? `<span class="badge bg-primary">${score}</span>` : ''}
+                                    </div>
+                                </div>
+                            </div>`;
+                    }).join('');
+                    return;
+                }
+            }
+
+            // Not logged in: show local history (if any)
+            if (!localHistory || localHistory.length === 0) {
+                historyList.innerHTML = '<p class="text-muted">No local history. Perform analyses to build local history.</p>';
+                return;
+            }
+            historyList.innerHTML = localHistory.map(item => {
+                const title = item.jobTitle || item.title || 'Analysis';
+                const date = item.date || item.createdAt || item.timestamp || '';
+                const score = item.score != null ? `${item.score}%` : '';
+                return `
+                    <div class="list-group-item">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <div class="fw-semibold">${title}</div>
+                                <div class="text-muted small">${date}</div>
+                            </div>
+                            <div>
+                                ${score ? `<span class="badge bg-primary">${score}</span>` : ''}
+                            </div>
+                        </div>
+                    </div>`;
+            }).join('');
+        }
+
+        // Save history locally (used when server DB isn't available)
+        function saveHistoryLocal(entry) {
+            try {
+                const arr = JSON.parse(localStorage.getItem('analysisHistory') || '[]');
+                arr.unshift(entry);
+                // keep latest 100 only
+                localStorage.setItem('analysisHistory', JSON.stringify(arr.slice(0, 100)));
+            } catch (e) {
+                console.error('Could not save local history', e);
+            }
+        }
+
+        document.getElementById('resume-file').addEventListener('change', async (event) => {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            // Show loading state in dropzone (update only the content container so the hidden input remains)
+            const dropzone = document.getElementById('dropzone');
+            const dzContent = dropzone.querySelector('.dropzone-content') || dropzone;
+            dzContent.innerHTML = `
+                <div class="text-center">
+                    <div class="spinner-border text-primary mb-2" role="status"></div>
+                    <div class="small text-muted">Processing your resume...</div>
+                </div>`;
+
+            try {
+                let textContent = '';
+                
+                if (file.type.includes('pdf')) {
+                    if (!window.pdfjsLib) { throw new Error("PDF library not loaded."); }
+                    pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js`;
+                    const arrayBuffer = await file.arrayBuffer();
+                    const pdf = await pdfjsLib.getDocument(arrayBuffer).promise;
+                    for (let i = 1; i <= pdf.numPages; i++) {
+                        const page = await pdf.getPage(i);
+                        textContent += (await page.getTextContent()).items.map(s => s.str).join(' ') + ' ';
+                    }
+                    extractedResumeText = textContent.trim();
+                } else if (file.type.includes('word')) {
+                    const arrayBuffer = await file.arrayBuffer();
+                    extractedResumeText = (await mammoth.extractRawText({ arrayBuffer })).value.trim();
+                } else {
+                    extractedResumeText = (await file.text()).trim();
+                }
+
+                if (!extractedResumeText) {
+                    throw new Error('No text could be extracted from the file');
+                }
+
+                // Show success state with file name (update content container only)
+                const dzContent2 = dropzone.querySelector('.dropzone-content') || dropzone;
+                dzContent2.innerHTML = `
+                    <div class="text-center">
+                        <div class="text-success mb-2"><i class="bi bi-check-circle-fill"></i></div>
+                        <div class="small fw-semibold">${file.name}</div>
+                        <div class="small text-muted">Ready to analyze!</div>
+                    </div>`;
+
+                // Enable the analyze button
+                const analyzeBtn = document.querySelector('button[onclick="analyzeResume()"]');
+                if (analyzeBtn) {
+                    analyzeBtn.disabled = false;
+                }
+            } catch (error) {
+                console.error('Error processing file:', error);
+                extractedResumeText = '';
+                const dzContent3 = dropzone.querySelector('.dropzone-content') || dropzone;
+                dzContent3.innerHTML = `
+                    <div class="text-center">
+                        <div class="text-danger mb-2"><i class="bi bi-exclamation-triangle-fill"></i></div>
+                        <div class="small fw-semibold">Error Processing File</div>
+                        <div class="small text-muted">${error.message}</div>
+                    </div>`;
+            }
+        });
+
+        async function analyzeResume() {
+            // Validate resume
+            if (!extractedResumeText) {
+                alert("Please upload a resume before analyzing.");
+                return;
+            }
+
+            // Get job description
+            const selectedJobId = document.getElementById('job-select').value;
+            if (!selectedJobId) {
+                alert("Please select a job description first.");
+                return;
+            }
+
+            let selectedJob = jobPostings.find(job => job.id == selectedJobId);
+            let jobDesc = '';
+
+            if (selectedJobId === 'custom') {
+                const textarea = document.getElementById('job-desc-textarea');
+                jobDesc = textarea ? textarea.value.trim() : '';
+                if (!jobDesc) {
+                    alert('Please paste a job description into the textarea before analyzing.');
+                    return;
+                }
+                selectedJob = { job_title: 'Custom Job Description', full_description: jobDesc };
+            } else {
+                if (!selectedJob) {
+                    alert("Please select a valid job description.");
+                    return;
+                }
+                jobDesc = selectedJob.full_description;
+            }
+
+            // Show analysis section and loading state (use overlay for a professional look)
+            showSection('analysis');
+            showAnalysisOverlay(true);
+            document.getElementById('analysis-title').textContent = `Analysis for ${selectedJob.job_title}`;
+            document.getElementById('ats-message').textContent = 'Analyzing your resume...';
+            document.getElementById('ats-score').textContent = '0%';
+
+            // Reset previous results
+            const strengthsList = document.getElementById('strengths-list');
+            const weaknessesList = document.getElementById('weaknesses-list');
+            const interviewAccordion = document.getElementById('interviewAccordion');
+            
+            if (strengthsList) strengthsList.innerHTML = '';
+            if (weaknessesList) weaknessesList.innerHTML = '';
+            if (interviewAccordion) interviewAccordion.innerHTML = '';            // Reset UI state before making the request
+            document.getElementById('ats-score').textContent = '0%';
+            document.getElementById('ats-message').textContent = 'Analyzing...';
+            const strengthsEl = document.getElementById('strengths-list');
+            const weaknessesEl = document.getElementById('weaknesses-list');
+            if (strengthsEl) strengthsEl.innerHTML = '';
+            if (weaknessesEl) weaknessesEl.innerHTML = '';
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/score`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        resume: extractedResumeText,
+                        jobDesc: jobDesc
+                    })
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(errorData.message || 'Scoring request failed.');
+                }
+
+                const analysis = await response.json();
+
+                // persist history locally so History works even without a server-side DB
+                try {
+                    const histEntry = {
+                        jobTitle: selectedJob.job_title || selectedJob.jobTitle || selectedJob.title || 'Job',
+                        date: new Date().toLocaleString(),
+                        score: analysis.score != null ? analysis.score : null
+                    };
+                    saveHistoryLocal(histEntry);
+                } catch (e) {
+                    console.warn('Could not save history locally', e);
+                }
+
+                document.getElementById('ats-score').textContent = `${analysis.score}%`;
+                document.getElementById('ats-message').textContent = analysis.score > 75 ? "This is a strong match!" : "There is room for improvement.";
+
+                const strengthsEl = document.getElementById('strengths-list');
+
+                // Helper: compute simple local strengths by overlapping keywords between jobDesc and resume
+                function computeLocalStrengths(resumeText, jobText, maxCount = 4) {
+                    const normalize = s => (s||'').toLowerCase().replace(/[^a-z0-9\s]/g, ' ');
+                    const jdTokens = normalize(jobText).split(/\s+/).filter(w => w.length > 3);
+                    const uniqueJd = Array.from(new Set(jdTokens));
+                    const resNorm = normalize(resumeText);
+                    const matched = uniqueJd.filter(k => resNorm.includes(k));
+                    return matched.slice(0, maxCount).map(s => s.split(/\s+/).map(w=> w.charAt(0).toUpperCase()+w.slice(1)).join(' '));
+                }
+
+                // Prefer sentence-style strengths from the AI when available; otherwise fall back to keyword badges
+                try {
+                    const aiStrengths = Array.isArray(analysis.strengths) ? analysis.strengths.map(s=>String(s).trim()).filter(Boolean) : [];
+
+                    if (aiStrengths.length) {
+                        // If AI returned full-sentence strengths, display them as short paragraphs
+                        const longSentences = aiStrengths.filter(s => s.split(/\s+/).length > 6);
+                        if (longSentences.length) {
+                            strengthsEl.innerHTML = longSentences.map(s => `<p class="text-dark mb-2">${escapeHtml(s)}</p>`).join('');
+                        } else {
+                            // Otherwise the AI returned short tokens — show them as badges
+                            const tokenSet = new Set();
+                            aiStrengths.forEach(s => {
+                                extractSkillCandidates(s).forEach(t => tokenSet.add(t));
+                            });
+                            if (tokenSet.size) {
+                                strengthsEl.innerHTML = '<div class="skills-container">' + Array.from(tokenSet).map(t => `<span class="badge">${escapeHtml(t)}</span>`).join('') + '</div>';
+                            } else {
+                                strengthsEl.innerHTML = '<div class="text-muted p-3 text-center">No specific strengths identified.</div>';
+                            }
+                        }
+                    } else {
+                        // No AI strengths — compute a local fallback from resume/job overlap
+                        const fallback = computeLocalStrengths(extractedResumeText, jobDesc, 6);
+                        if (fallback && fallback.length) {
+                            strengthsEl.innerHTML = '<div class="skills-container">' + fallback.map(t => `<span class="badge">${escapeHtml(t)}</span>`).join('') + '</div>';
+                        } else {
+                            strengthsEl.innerHTML = '<div class="text-muted p-3 text-center">No specific strengths identified.</div>';
+                        }
+                    }
+                } catch (e) {
+                    strengthsEl.innerHTML = '<div class="text-muted p-3 text-center">No specific strengths identified.</div>';
+                }
+
+                const weaknessesEl = document.getElementById('weaknesses-list');
+                // For weaknesses show concise suggestions with improved styling (prefer full sentences)
+                const weaknesses = Array.isArray(analysis.weaknesses) ? analysis.weaknesses.map(w=>String(w).trim()).filter(Boolean) : [];
+                if (weaknesses.length > 0) {
+                    weaknessesEl.innerHTML = weaknesses.map(w => `<p>${escapeHtml(w)}</p>`).join('');
+                } else {
+                    weaknessesEl.innerHTML = '<div class="text-muted p-3 text-center">No specific areas for improvement identified.</div>';
+                }
+
+                // Set up the other AI calls
+                document.getElementById('generate-suggestions-btn').onclick = () => getAIAnalysis({
+                    type: 'suggestions',
+                    resume: extractedResumeText,
+                    jobDesc: jobDesc,
+                    missingKeywords: analysis.weaknesses,
+                    note: 'learning_plan'
+                });
+                getAIAnalysis({ type: 'interview_questions', resume: extractedResumeText, jobDesc: jobDesc });
+
+                // Render apply / learning recommendation below strengths/areas
+                try {
+                    renderApplyRecommendation(analysis, selectedJob);
+                } catch (e) { console.warn('Could not render apply recommendation', e); }
+
+            } catch (error) {
+                console.error("Scoring Error:", error);
+                document.getElementById('ats-message').textContent = `Error: ${error.message}`;
+                document.getElementById('ats-score').textContent = '0%';
+                
+                // Clear analysis sections on error
+                const strengthsEl = document.getElementById('strengths-list');
+                const weaknessesEl = document.getElementById('weaknesses-list');
+                if (strengthsEl) strengthsEl.innerHTML = '<p class="text-muted">Analysis unavailable. Please try again.</p>';
+                if (weaknessesEl) weaknessesEl.innerHTML = '<p class="text-muted">Analysis unavailable. Please try again.</p>';
+            } finally {
+                showAnalysisOverlay(false);
+            }
+        }
+
+        // Show/hide analysis overlay and manage button disabled state
+        function showAnalysisOverlay(show) {
+            const overlay = document.getElementById('analysis-overlay');
+            const startBtn = document.getElementById('start-analyze-btn');
+            if (!overlay) return;
+            if (show) {
+                overlay.style.display = 'flex';
+                if (startBtn) { startBtn.disabled = true; startBtn.classList.add('disabled'); }
+            } else {
+                overlay.style.display = 'none';
+                if (startBtn) { startBtn.disabled = false; startBtn.classList.remove('disabled'); }
+            }
+        }
+
+
+        async function getAIAnalysis(body) {
+                    let targetElementId = '';
+                    let isModal = false;
+                    // track the suggestions button so we can show a loading state when generating rewrite suggestions
+                    let suggestionBtn = null;
+
+            switch (body.type) {
+                case 'interview_questions': targetElementId = 'interviewAccordion'; break;
+                case 'suggestions': targetElementId = 'suggestion-modal-body'; isModal = true; break;
+            }
+
+            if (isModal) {
+                // use the same loader card markup used in the modal's initial state for consistency
+                document.getElementById(targetElementId).innerHTML = `
+                    <div class="modal-loader d-flex align-items-center justify-content-center">
+                        <div class="loader-card text-center p-4 w-100">
+                            <div class="spinner-border text-primary loader-visual" role="status" aria-hidden="true"></div>
+                            <div class="loader-title mt-3 fw-semibold">Generating personalized suggestions</div>
+                            <div class="loader-subtext text-muted mt-1">We are optimizing bullets and tailoring language for ATS <span class="loader-dots">...</span></div>
+                        </div>
+                    </div>`;
+                document.getElementById('download-pdf-btn').disabled = true;
+            }
+
+            // If this is a suggestions request, show the modal programmatically with loader and manage button
+            let modalInstance = null;
+            if (body.type === 'suggestions') {
+                const modalEl = document.getElementById('suggestion-modal');
+                try {
+                    modalInstance = bootstrap.Modal.getOrCreateInstance(modalEl);
+                    modalInstance.show();
+                } catch (e) {
+                    // bootstrap not available or modal failed to show — ignore
+                }
+            }
+
+            // If this is a suggestions request, toggle the inline button spinner and disable the button
+            if (body.type === 'suggestions') {
+                suggestionBtn = document.getElementById('generate-suggestions-btn');
+                if (suggestionBtn) {
+                    suggestionBtn.disabled = true;
+                    suggestionBtn.classList.add('disabled');
+                    const spinner = suggestionBtn.querySelector('.btn-spinner');
+                    const textEl = suggestionBtn.querySelector('.btn-text');
+                    if (spinner) spinner.style.display = 'inline-block';
+                    if (textEl) textEl.textContent = 'Generating...';
+                }
+            }
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/analyze`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(body)
+                });
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(errorData.message || 'Unknown API error');
+                }
+                const data = await response.json();
+
+                if (body.type === 'interview_questions') {
+                    updateInterviewQuestionsUI(data.text);
+                } else {
+                    let text = data && data.text ? data.text : '';
+                    // Defensive: if server returned a JSON scoring object string, synthesize a readable fallback client-side
+                    try {
+                        // If the server returned a scorer JSON (either object or string), try a single automated retry
+                        const looksLikeScorer = (obj) => {
+                            if (!obj) return false;
+                            try {
+                                if (typeof obj === 'string' && obj.trim().startsWith('{') && obj.includes('"score"')) return true;
+                                if (typeof obj === 'object' && (obj.score !== undefined || obj.weaknesses !== undefined)) return true;
+                            } catch (e) {}
+                            return false;
+                        };
+
+                        if (looksLikeScorer(data) || looksLikeScorer(text)) {
+                            // Attempt a single retry asking the server to force a plain-text response
+                            try {
+                                const retryBody = Object.assign({}, body, { force_full: true });
+                                const retryResp = await fetch(`${API_BASE_URL}/analyze`, {
+                                    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(retryBody)
+                                });
+                                if (retryResp.ok) {
+                                    const retryData = await retryResp.json();
+                                    if (retryData && retryData.text && typeof retryData.text === 'string' && retryData.text.trim()) {
+                                        text = retryData.text;
+                                    }
+                                }
+                            } catch (e) {
+                                console.warn('Retry for full-text suggestions failed', e);
+                            }
+                        }
+
+                        // If after retry we still don't have a usable text, synthesize a local rewrite suggestion so the user always gets useful output
+                        if (!text || (typeof text === 'string' && text.trim().length < 10)) {
+                            const parsed = (typeof data === 'string' && data.trim().startsWith('{')) ? (() => { try { return JSON.parse(data); } catch(e){return null;} })() : (typeof data === 'object' ? data : null);
+                            const missing = parsed && Array.isArray(parsed.weaknesses) ? parsed.weaknesses : [];
+                            const strengths = parsed && Array.isArray(parsed.strengths) ? parsed.strengths : [];
+                            // Build a compact rewrite: summary + 3 suggested bullets using strengths and addressing weaknesses
+                            const bullets = [];
+                            if (strengths && strengths.length) bullets.push(`Summary: ${strengths.slice(0,2).join('; ')}.`);
+                            // Create example bullets emphasizing keywords or improvements
+                            const seedKeywords = missing.length ? missing.slice(0,6) : [];
+                            if (seedKeywords.length) {
+                                bullets.push('Suggested focus keywords: ' + seedKeywords.join(', '));
+                                bullets.push('Example bullet (engineer-style): Designed and implemented [PROJECT] using ' + seedKeywords.join(', ') + ' to improve [METRIC].');
+                            }
+                            bullets.push('Tip: Add a dedicated Skills section and convert achievements into result-oriented bullets (use numbers where possible).');
+                            text = `AI provider returned only a scoring object; here are local suggestions:\n\n${bullets.join('\n\n')}`;
+                        }
+                    } catch (e) {
+                        // ignore
+                    }
+
+                    // place as textContent to avoid HTML injection
+                    document.getElementById(targetElementId).textContent = text;
+                    document.getElementById('download-pdf-btn').disabled = false;
+                    // ensure modal is visible if we created it programmatically
+                    try { if (modalInstance) modalInstance.show(); } catch (e) {}
+                }
+
+            } catch (error) {
+                const errorMsg = `AI analysis failed: ${error.message}`;
+                console.error("AI Error:", error);
+                if (isModal) {
+                    document.getElementById(targetElementId).textContent = errorMsg;
+                } else if (targetElementId) {
+                    document.getElementById(targetElementId).innerHTML = `<p class="text-danger">${errorMsg}</p>`;
+                }
+            } finally {
+                // restore suggestions button state if we modified it
+                if (suggestionBtn) {
+                    const spinner = suggestionBtn.querySelector('.btn-spinner');
+                    const textEl = suggestionBtn.querySelector('.btn-text');
+                    if (spinner) spinner.style.display = 'none';
+                    if (textEl) textEl.textContent = 'Generate AI Rewrite Suggestions';
+                    suggestionBtn.disabled = false;
+                    suggestionBtn.classList.remove('disabled');
+                }
+            }
+        }
+
+        function updateInterviewQuestionsUI(text) {
+            const accordion = document.getElementById('interviewAccordion');
+            accordion.innerHTML = text.split(/\n\s*\d+\.\s*/).filter(q => q.trim()).map((q, index) => {
+                const id = `q${index}`;
+                return `
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#${id}">${q.trim()}</button>
+                        </h2>
+                        <div id="${id}" class="accordion-collapse collapse" data-bs-parent="#interviewAccordion">
+                            <div class="accordion-body">Use the STAR method (Situation, Task, Action, Result) to structure your answer.</div>
+                        </div>
+                    </div>`;
+            }).join('') || '<p class="text-muted">No questions generated.</p>';
+        }
+
+        document.getElementById('download-pdf-btn').addEventListener('click', () => {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            const textToConvert = document.getElementById('suggestion-modal-body').textContent;
+
+            doc.setFont('Helvetica', 'normal');
+            doc.setFontSize(11);
+
+            const splitText = doc.splitTextToSize(textToConvert, 180);
+            doc.text(splitText, 15, 20);
+
+            doc.save('AI-Optimized-Resume.pdf');
+        });
+
+        // --- SOCIAL / OAUTH HELPERS ---
+        function startGoogleAuth() {
+            // Redirect user to backend Google OAuth route. Backend should implement /api/auth/google
+            // which will handle the OAuth handshake and redirect back with session/cookie or token.
+            window.location.href = `${API_BASE_URL}/auth/google`;
+        }
+
+        // --- FORGOT PASSWORD HANDLER ---
+        // Handle password reset form submission
+        document.getElementById('reset-password-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('reset-email').value;
+            const newPassword = document.getElementById('new-password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+
+            // Validate passwords match
+            if (newPassword !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/reset-password', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        newPassword: newPassword
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    alert('Password reset successful! Please login with your new password.');
+                    // Close the modal
+                    const modal = bootstrap.Modal.getInstance(document.getElementById('forgot-password-modal'));
+                    modal.hide();
+                } else {
+                    alert(data.message || 'Failed to reset password. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again later.');
+            }
+        });
+
+        async function handleForgotPassword(e) {
+            e.preventDefault();
+            const form = document.getElementById('forgot-password-form');
+            const email = document.getElementById('reset-email').value.trim();
+            const msgDiv = document.getElementById('forgot-password-message');
+            const submitBtn = document.getElementById('reset-submit-btn');
+            const spinner = submitBtn.querySelector('.spinner-border');
+            const btnText = submitBtn.querySelector('.btn-text');
+
+            // Show loading state
+            submitBtn.disabled = true;
+            spinner.style.display = 'inline-block';
+            btnText.textContent = 'Sending...';
+            msgDiv.className = 'alert d-none';
+
+            try {
+                const res = await fetch(`${API_BASE_URL}/forgot-password`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email })
+                });
+
+                if (!res.ok) {
+                    const err = await res.json().catch(() => ({}));
+                    throw new Error(err.message || 'Could not request password reset.');
+                }
+
+                // Success - show message and close modal after delay
+                msgDiv.textContent = 'If this email is registered, a password reset link will be sent. Please check your inbox.';
+                msgDiv.className = 'alert alert-success';
+                setTimeout(() => {
+                    const modal = bootstrap.Modal.getInstance(document.getElementById('forgot-password-modal'));
+                    if (modal) {
+                        modal.hide();
+                        form.reset();
+                    }
+                }, 3000);
+
+            } catch (err) {
+                // Show error in the modal
+                msgDiv.textContent = 'Could not request password reset: ' + err.message;
+                msgDiv.className = 'alert alert-danger';
+            } finally {
+                // Restore button state
+                submitBtn.disabled = false;
+                spinner.style.display = 'none';
+                btnText.textContent = 'Send reset link';
+            }
+
+            return false; // Prevent form submission
+        }
+
+        
+
+        // Basic HTML escape to avoid injecting content into the page
+        function escapeHtml(str) {
+            return str.replace(/[&<>"']/g, function (m) { return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[m]; });
+        }
+
+        // Toggle password visibility between show/hide
+        function togglePassword(inputId, button) {
+            const input = document.getElementById(inputId);
+            const icon = button.querySelector('i');
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('bi-eye');
+                icon.classList.add('bi-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('bi-eye-slash');
+                icon.classList.add('bi-eye');
+            }
+        }
+
+    </script>
+</body>
+
+</html>

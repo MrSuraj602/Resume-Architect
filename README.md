@@ -1,61 +1,57 @@
-# Resume-Architect
+Resume Architect — Quick Start
 
+This repository contains a simple Express backend and a static frontend for the Resume Architect app.
 
-🧠 AI Resume Analyzer & Enhancer
-🚀 Overview
+Prerequisites
+- Node.js (16+ recommended)
+- npm
+- MySQL (if you want server-side persistence)
 
-AI Resume Analyzer & Enhancer is an intelligent web application that helps users evaluate and improve their resumes for job applications.
-Users can upload their resume or paste a job description, and the system automatically analyzes the resume using AI-powered ATS (Applicant Tracking System) scoring.
+1) Create a .env file
+Copy the provided `.env.example` to `.env` at the project root and fill in the values:
 
-It provides a detailed strengths and weaknesses analysis, suggests improvements, and even generates a more ATS-friendly version of the resume.
-Additionally, it creates AI-generated interview questions based on the candidate’s skills and the job description.
+- GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET: required for Google OAuth Sign-in.
+	- When creating OAuth credentials in Google Cloud Console, set the Authorized redirect URI to:
+		`http://localhost:3000/api/auth/google/callback`
+- SESSION_SECRET and JWT_SECRET: secrets used for sessions and JWT signing.
+- FRONTEND_BASE_URL and APP_BASE_URL: typically `http://localhost:3000` for local dev.
+- OPENROUTER_API_KEY: Optional. If not provided, AI features (scoring, suggestions) will be disabled but the server will still run for auth and basic endpoints.
+- DB_* variables: optional if you prefer using env for DB credentials. The app currently uses hardcoded DB values in `server.js` unless you modify it.
 
-✨ Features
+2) Install dependencies
 
-📄 Resume Upload — Upload your resume in PDF or DOCX format.
+Open a terminal in the project folder and run:
 
-🧾 Job Description Input — Paste or select a job description to match your resume against.
+```powershell
+npm install
+```
 
-📊 ATS Score Generation — Get an AI-calculated ATS score that shows how well your resume fits the job.
+3) Start the server
 
-💪 Strengths & Weaknesses — Identify key strong points and areas for improvement.
+```powershell
+npm start
+```
 
-🤖 AI Resume Generator — Generate a more optimized and professional resume tailored for the selected job.
+This runs `node server.js`. The server logs will show if the MySQL connection is successful.
 
-🎯 AI Interview Questions — Get relevant interview questions based on your profile and job description.
+4) Open the frontend
 
-📈 Skill Insights (Optional) — Displays missing or suggested skills for better job matching.
+Open your browser to `http://localhost:3000` (or the value of FRONTEND_BASE_URL).
 
-🧩 Tech Stack
+5) Testing Google Sign-in
 
-Frontend: HTML, CSS, JavaScript, Bootstrap
+- If `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` are set and the server restarted, click "Sign in with Google" in the frontend. The server uses Passport to perform the OAuth handshake. On success the server will redirect back with a JWT and the frontend will verify it with `/api/auth/me`.
+- If OAuth is not configured, the server will redirect back with `?error=oauth_not_configured` and the frontend shows a friendly alert.
+- If the database is unavailable the server will still run and Google OAuth will fall back to an in-memory user store (useful for local testing). For production you should use a persistent DB.
 
-Backend: Node.js / Express.js
+Notes & Troubleshooting
+- If the server exits complaining about MySQL, check your DB credentials and ensure MySQL is running. The server will attempt to query the DB on startup.
+- To enable AI features, set `OPENROUTER_API_KEY` in `.env`. If missing, AI calls will warn and the server will continue to run for auth and basic features.
+- Do NOT commit `.env` to version control. Use `.gitignore` to exclude it.
 
-AI Integration: OpenAI API / Mistral / Gemini (depending on configuration)
+Optional improvements you may want next
+- Move DB credentials into `process.env` inside `server.js` to avoid hardcoding credentials.
+- Use HTTPS and secure cookies in production.
+- Use a secrets manager for production secrets.
 
-Database: MySQL / MongoDB
-
-Hosting: Render / Vercel / GitHub Pages
-
-🧠 How It Works
-
-Upload your resume or paste the text.
-
-Choose or paste a job description.
-
-The AI analyzes the content and calculates the ATS score.
-
-Get your strengths, weaknesses, and improvement suggestions.
-
-Optionally, generate a new ATS-optimized resume and interview question set.
-
-
-🤝 Contribution
-
-Contributions are welcome! Feel free to fork the repo, open issues, or submit pull requests to improve functionality or UI.
-
-💬 Author
-
-👩‍💻 Developed by Suraj Rathod
-⭐ If you like this project, don’t forget to give it a star on GitHub!
+If you want, I can apply the DB env wiring to `server.js` next and add a simple `env`-based override for the current hardcoded MySQL settings.
